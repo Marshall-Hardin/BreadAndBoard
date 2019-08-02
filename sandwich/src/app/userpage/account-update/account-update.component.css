@@ -1,0 +1,27 @@
+body {
+    background-color: #fff2ccff;
+}
+
+.container {
+    background-color: white;
+    height: 100vh;
+}
+
+.acntcontainer {
+    border: grey 0.1em solid;
+    padding: inherit;
+    margin-left: 5%;
+    margin-right: 45%;
+    display: flow-root;
+    width: 50%;
+    height: fit-content;
+}
+
+.acntheader {
+    border: black 0.1em solid;
+    padding: inherit;
+}
+
+.acntdetail {
+    padding: inherit;
+}
