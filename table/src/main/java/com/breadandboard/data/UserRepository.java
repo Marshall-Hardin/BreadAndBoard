@@ -1,5 +1,6 @@
 package com.breadandboard.data;
 
-public interface UserRepository {
-
+public interface UserRepository 
+{
+	
 }
