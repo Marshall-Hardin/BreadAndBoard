@@ -1,0 +1,28 @@
+package com.breadandboard.services;
+
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.breadandboard.data.ReviewRepository;
+
+@Service
+public class ReviewService {
+	
+	/*
+	 * create
+	 * delete (id)
+	 * delete (user)
+	 * find by id (individual)
+	 * find by location (list)
+	 * find by user (list)
+	 * edit - update title, review text, and rating
+	 * 
+	 */
+	
+	private static final Logger log = Logger.getLogger(ReviewService.class);
+	
+	@Autowired
+	private ReviewRepository repo;
+
+}

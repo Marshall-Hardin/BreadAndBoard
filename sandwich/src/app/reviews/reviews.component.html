@@ -22,16 +22,19 @@
                 <option value="Restaurant1">Restaurant1</option>
                 <option value="Restaurant2">Restaurant2</option>
             </select>
+            <button>Submit</button>
         </div>
     </div>
     
     <!-- will just append more of the following div for all results of the above search -->
-    <div>
-        <h5>Review Title (score)</h5>
-        <div>
-            contents of the review go here.
-        </div>
-    </div>
+    <ul>
+        <li *ngFor = "let review of reviews">
+            <h5>{{title}} {{score}}</h5>
+            <div>
+                {{content}}
+            </div>
+        </li>
+    </ul>
 </div>
 <div class="container">
     <h2>Edit Your Reviews</h2>
@@ -43,14 +46,15 @@
                 <option value="review1">review1</option>
                 <option value="review2">review2</option>
             </select>
+            <button>Submit</button>
         </div>
     </div>
 
     <div>
-        <h5>Review Title (score)</h5>
+        <h5>{{title}} {{score}}</h5>
         <div>
-            contents of the review go here.
+            {{contents}}
         </div>
     </div>
-    <button>edit</button>
+    <button>Edit</button>
 </div>
