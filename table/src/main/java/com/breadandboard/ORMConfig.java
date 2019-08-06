@@ -16,9 +16,9 @@ public class ORMConfig
 {
 
 	private static final String url = "jdbc:oracle:thin:"//static for initilizing this.
-			+ "bread-and-board.cn3lqnky3avv.us-east-1.rds.amazonaws.com" + //this is the endpoint for your database specifically.
+			+ "@breadandboard.cn3lqnky3avv.us-east-1.rds.amazonaws.com" + //this is the endpoint for your database specifically.
 			":1521:ORCL";
-	private static final String username = "bandbproject2";
+	private static final String username = "bandbProject2";
 	private static final String password = "breadandboard";
 
 	@Bean
