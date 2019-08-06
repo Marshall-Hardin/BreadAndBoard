@@ -7,6 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
+import { AccountDetailsComponent } from './userpage/account-details/account-details.component';
+import { MyreviewsComponent } from './myreviews/myreviews.component';
+import { TriprowComponent } from './userpage/triprow/triprow.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -18,7 +22,10 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccountDetailsComponent,
+    MyreviewsComponent,
+    TriprowComponent
   ],
   imports: [
     BrowserModule,
