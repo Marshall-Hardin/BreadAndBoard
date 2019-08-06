@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.breadandboard.services.TripService;
 
@@ -11,16 +12,19 @@ import com.breadandboard.services.TripService;
 @SpringBootTest
 public class TableApplicationTests {
 
+	
+	
 	@Test
 	public void contextLoads() {
 	}
 
 	@Test
+	@Transactional
 	public void tripRetrievalTest() 
 	{
 		TripService trip = new TripService();
-		trip.findById(1);
-		trip.findByAccountId(3);
+		System.out.println(trip.findById(1));
+		System.out.println(trip.findByAccountId(3));
 	}
 	
 }
