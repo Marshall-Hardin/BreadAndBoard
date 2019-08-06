@@ -29,9 +29,9 @@
     <!-- will just append more of the following div for all results of the above search -->
     <ul>
         <li *ngFor = "let review of reviews">
-            <h5>{{title}} {{score}}</h5>
+            <h5>{{review.title}} -- {{review.score}}</h5>
             <div>
-                {{content}}
+                {{review.content}}
             </div>
         </li>
     </ul>

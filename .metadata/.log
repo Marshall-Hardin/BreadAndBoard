@@ -371,3 +371,15 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2019-08-06 13:28:38.887
 !MESSAGE Field value processing of @ConfigurationProperty meta-data is not supported
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-06 16:19:54.155
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.owiBlaci
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-06 16:19:54.206
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.owiBlaci
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-06 16:19:54.207
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-06 16:19:54.207
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.owiBlaci => OK
