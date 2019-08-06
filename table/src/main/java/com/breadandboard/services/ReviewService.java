@@ -1,5 +1,8 @@
 package com.breadandboard.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +16,10 @@ public class ReviewService {
 	/*
 	 * create --done
 	 * delete (id) --done
-	 * delete (user)
-	 * find by id (individual)
-	 * find by location (list)
-	 * find by user (list)
+	 * delete (user) --done
+	 * find by id (individual) --done
+	 * find by location (list) 
+	 * find by user (list) --done
 	 * edit - update title, review text, and rating --done
 	 * 
 	 */
@@ -31,7 +34,38 @@ public class ReviewService {
 	}
 	
 	public void delete(int id) {
-		repo.deleteById(id);
+		Optional<Review> optional = repo.findById(id);
+		if(optional.isPresent()) {
+			repo.deleteById(optional.get().getId());
+		} else {
+			log.warn("Review " + id + " not found!");
+		}
+	}
+	
+	public void deleteAllUserReviews(int userId) {
+		List<Review> reviews = repo.findByReview_User_Id(userId);
+		while(!reviews.isEmpty()) {
+			repo.deleteById(reviews.get(0).getId());
+		}
+	}
+	
+	public Review findById(int id) {
+		Optional<Review> optional = repo.findById(id);
+		if(optional.isPresent()) {
+			return optional.get();
+		}
+		else {
+			log.warn("Review " + id + " not found!");
+			return null;
+		}
+	}
+	
+	public List<Review> findByUserId(int userId){
+		return repo.findByReview_User_Id(userId);
+	}
+	
+	public List<Review> findByLocation(int locationId){
+		return repo.findByReview_Location(locationId);
 	}
 
 }
