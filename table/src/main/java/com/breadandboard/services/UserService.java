@@ -36,4 +36,8 @@ public class UserService {
 	public User save(User user) {
 		return repo.save(user);
 	}
+	
+	public User findByUsername(String username) {
+		return repo.findByAccount_Username(username);
+	}
 }
