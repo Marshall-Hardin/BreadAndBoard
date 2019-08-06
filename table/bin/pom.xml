@@ -19,6 +19,8 @@
 	</properties>
 
 	<dependencies>
+<<<<<<< HEAD
+=======
 	        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -50,6 +52,7 @@
             <version>19.3</version>
         </dependency>
         
+>>>>>>> ab5d1c70cfa372ff9805b56d0f9122cb44692bf1
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
