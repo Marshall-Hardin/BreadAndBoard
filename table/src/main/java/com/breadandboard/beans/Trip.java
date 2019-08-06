@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,6 +33,17 @@ public class Trip
 	@Column(name="trip_name")
 	String tripName;
 	
+	@OneToMany(mappedBy="destinations")
+	private Destination destination;
+	
+	public Destination getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Destination destination) {
+		this.destination = destination;
+	}
+
 	public Trip () {}
 
 	public Trip(User accountId, Date accessTimestamp, String tripName) {

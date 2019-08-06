@@ -24,9 +24,8 @@ public class Destination
 {
 	
 	@Id
-	@Column(name = "dest_trip_id")
 	@ManyToOne
-	@JoinColumn(name="trip_id")
+	@JoinColumn(name="dest_trip_id")
 	Trip trip;
 	@Id
 	@Column(name = "dest_number")
