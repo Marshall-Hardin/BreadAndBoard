@@ -12,11 +12,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountDetailsComponent } from './userpage/account-details/account-details.component';
 import { TriprowComponent } from './userpage/triprow/triprow.component';
+import { PageComponent } from './userpage/page/page.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'userpage', component: PageComponent }
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     ReviewsComponent,
     RegisterComponent,
     AccountDetailsComponent,
-    TriprowComponent
+    TriprowComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
