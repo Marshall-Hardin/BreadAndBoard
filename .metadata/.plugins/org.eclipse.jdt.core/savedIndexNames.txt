@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 INDEX VERSION 1.131+C:\Repos\BreadAndBoard\.metadata\.plugins\org.eclipse.jdt.core
 2053541146.index
 3645731501.index
@@ -15,7 +14,6 @@ INDEX VERSION 1.131+C:\Repos\BreadAndBoard\.metadata\.plugins\org.eclipse.jdt.co
 499621538.index
 4266898862.index
 2605561000.index
-4203024756.index
 2941789836.index
 3645013353.index
 3740150653.index
@@ -28,9 +26,9 @@ INDEX VERSION 1.131+C:\Repos\BreadAndBoard\.metadata\.plugins\org.eclipse.jdt.co
 2748469281.index
 2184477770.index
 2740854424.index
-1138666067.index
-175553619.index
 306610144.index
+175553619.index
+1138666067.index
 91780146.index
 2465351362.index
 2124073873.index
@@ -106,24 +104,3 @@ INDEX VERSION 1.131+C:\Repos\BreadAndBoard\.metadata\.plugins\org.eclipse.jdt.co
 906307296.index
 2946136498.index
 3910045260.index
-=======
-INDEX VERSION 1.131+/Users/TreHhardin/Desktop/Revature/Code/Repositories/Assignments/BreadAndBoard/.metadata/.plugins/org.eclipse.jdt.core
-3005775987.index
-2418981844.index
-3957545424.index
-3860113537.index
-1999859227.index
-2825866429.index
-1295111223.index
-2171505704.index
-2004600464.index
-1310078302.index
-2265843187.index
-1271342938.index
-3650817109.index
-824309646.index
-454247607.index
-4046073632.index
-1931998465.index
-3692720234.index
->>>>>>> fec566919b85e5a27c0e489a9712a4c8c614e5c6
