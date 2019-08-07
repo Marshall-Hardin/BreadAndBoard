@@ -7,10 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReviewsComponent } from './reviews/reviews.component'
 import { NavbarComponent } from './navbar/navbar.component';
-import { NgxPopper } from 'angular-popper';
+// import { NgxPopper } from 'angular-popper';
 import { RegisterComponent } from './register/register.component';
 import { AccountDetailsComponent } from './userpage/account-details/account-details.component';
-import { MyreviewsComponent } from './myreviews/myreviews.component';
 import { TriprowComponent } from './userpage/triprow/triprow.component';
 
 
@@ -24,16 +23,15 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    ReviewsComponent
+    ReviewsComponent,
     RegisterComponent,
     AccountDetailsComponent,
-    MyreviewsComponent,
     TriprowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPopper
+    // NgxPopper,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
