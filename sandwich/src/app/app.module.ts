@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AgmCoreModule } from '@agm/core'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     // NgxPopper,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBj773FOJ6yJsOyLx5js8e_WOYePNVrvdQ'})
   ],
   providers: [],
   bootstrap: [AppComponent]
