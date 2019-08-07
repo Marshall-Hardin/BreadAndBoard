@@ -1,0 +1,10 @@
+package com.breadandboard.data;
+
+/**
+ * 
+ * @author Zev
+ *
+ */
+public interface UserRepository {
+	
+}

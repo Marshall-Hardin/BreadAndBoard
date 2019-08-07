@@ -1,0 +1,11 @@
+package com.breadandboard.beans;
+
+/**
+ * 
+ * @author Zev
+ *
+ */
+
+public class Location {
+	
+}

@@ -1,0 +1,11 @@
+package com.breadandboard.services;
+
+/**
+ * 
+ * @author Zev
+ *
+ */
+
+public class UserService {
+
+}

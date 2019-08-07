@@ -1,0 +1,5 @@
+package com.breadandboard.services;
+
+public class LocationService {
+
+}
