@@ -44,8 +44,25 @@ public class User {
 	
 	@Column(name = "ban_desc")
 	private String banDesc;
+
+	public User(String username, String password, String name, @Min(1) @Max(3) int accessLevel, String banDesc) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.accessLevel = accessLevel;
+		this.banDesc = banDesc;
+	}
 	
-	public User() {}
+	public User(String username, String password, String name, @Min(1) @Max(3) int accessLevel) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.accessLevel = accessLevel;
+	}
+
+
 
 	public User(int accountId, String username, String password, String name,
 			@Min(1) @Max(3) int accessLevel, String banDesc) {

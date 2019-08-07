@@ -1,6 +1,7 @@
 package com.breadandboard.beans;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,13 +35,13 @@ public class Trip
 	String tripName;
 	
 	@OneToMany(mappedBy="destinations")
-	private Destination destination;
+	private List<Destination> destination;
 	
-	public Destination getDestination() {
+	public List<Destination> getDestination() {
 		return destination;
 	}
 
-	public void setDestination(Destination destination) {
+	public void setDestination(List<Destination> destination) {
 		this.destination = destination;
 	}
 
