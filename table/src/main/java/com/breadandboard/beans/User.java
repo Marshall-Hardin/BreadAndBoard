@@ -9,6 +9,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @author Zev
@@ -17,6 +20,8 @@ import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "DBusers")
+@Component
+@Scope("session")
 public class User {
 	
 	@Id
@@ -99,5 +104,11 @@ public class User {
 
 	public void setBanDesc(String banDesc) {
 		this.banDesc = banDesc;
+	}
+
+	@Override
+	public String toString() {
+		return "User [accountId=" + accountId + ", username=" + username + ", password=" + password + ", name=" + name
+				+ ", accessLevel=" + accessLevel + ", banDesc=" + banDesc + "]";
 	}
 }

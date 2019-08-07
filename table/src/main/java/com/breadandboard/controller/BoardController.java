@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.breadandboard.services.UserService;
  */
 
 @RestController
+@Scope("session")
 public class BoardController {
 	
 	private static final Logger log = Logger.getLogger(BoardController.class);
@@ -44,7 +46,7 @@ public class BoardController {
 		return new ResponseEntity<User>(login, HttpStatus.ACCEPTED);
 	}
 	
-	@GetMapping("/homepage/trips")
+	
 	
 	
 }
