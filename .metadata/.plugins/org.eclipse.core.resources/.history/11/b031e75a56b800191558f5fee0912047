@@ -1,0 +1,51 @@
+package com.breadandboard.beans;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+@Entity
+@Table(name = "reviews")
+public class Review {
+	
+	/*
+	 * 
+	 * review_id NUMBER PRIMARY KEY,
+     * review_user_id NUMBER,
+     * review_rating NUMBER,
+     * review_location NUMBER,
+     * review_text VARCHAR2(2000),
+	 * 
+	 */
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@ManyToOne
+	@JoinColumn(name = "review_user_id")
+	private int userId;
+	
+	@Column(name = "review_rating")
+	@Min(1)
+	@Max(6)
+	private int rating;
+	
+	@ManyToOne
+	@JoinColumn(name = "review_location")
+	private int location;
+	
+	@Column(name = "review_title")
+	private String title;
+	
+	@Column(name = "review_text")
+	private String reviewText;
+
+}

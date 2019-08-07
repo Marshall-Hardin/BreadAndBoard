@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 GitRepositoriesView.GitDirectories=C\:\\Repos\\BreadAndBoard\\.git;
 GitRepositoriesView.GitDirectories.relative=.git;
+=======
+GitRepositoriesView.GitDirectories=/Users/TreHhardin/Desktop/Revature/Code/Repositories/Assignments/BreadAndBoard/.git\:
+GitRepositoriesView.GitDirectories.relative=.git\:
+>>>>>>> fec566919b85e5a27c0e489a9712a4c8c614e5c6
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

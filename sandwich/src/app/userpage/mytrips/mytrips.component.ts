@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Trip } from 'src/app/models/trip';
 
 @Component({
   selector: 'app-mytrips',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MytripsComponent implements OnInit {
 
+  trips:Trip[];
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    
   }
 
 }

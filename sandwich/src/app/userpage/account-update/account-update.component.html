@@ -4,16 +4,19 @@
             <header>Account Details</header>
         </div>
         <div class="row acntdetail">
+            <b>Name:</b> <input type="text" [value]="name">
+        </div>
+        <div class="row acntdetail">
             <b>Username:</b>
         </div>
         <div class="row acntdetail">
-            <b>Password:</b> <input type="text" id="password">
+            <b>Password:</b> <input type="text" [value]="password">
         </div>
         <div class="row acntdetail">
-            <b>Email:</b> <input type="text" id="email">
+            <b>Email:</b> <input type="text" [value]="email">
         </div>
         <div class="row acntdetail">
-            <button>Update Account</button>
+            <button (click)="updateAccount()">Update Account</button>
         </div>
     </div>
 </div>
