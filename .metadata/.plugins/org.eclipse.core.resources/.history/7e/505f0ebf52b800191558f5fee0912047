@@ -1,0 +1,10 @@
+package com.breadandboard.beans;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "HOTEL_ROOM")
+public class Review {
+
+}
