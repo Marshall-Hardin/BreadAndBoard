@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core'
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./AppComponent";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReviewsComponent } from './reviews/reviews.component'
@@ -13,12 +13,15 @@ import { RegisterComponent } from './register/register.component';
 import { AccountDetailsComponent } from './userpage/account-details/account-details.component';
 import { TriprowComponent } from './userpage/triprow/triprow.component';
 import { PageComponent } from './userpage/page/page.component';
-
+import { Navbar2Component } from './navbar2/navbar2.component';
+import { MytripsComponent } from './userpage/mytrips/mytrips.component';
+import { TrippageComponent } from './trippage/trippage.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'userpage', component: PageComponent }
+  { path: 'page', component: PageComponent },
+  { path: 'mytrips', component: MytripsComponent }
 ];
 
 @NgModule({
@@ -28,9 +31,12 @@ const appRoutes: Routes = [
     NavbarComponent,
     ReviewsComponent,
     RegisterComponent,
+    MytripsComponent,
     AccountDetailsComponent,
     TriprowComponent,
-    PageComponent
+    PageComponent,
+    Navbar2Component,
+    TrippageComponent
   ],
   imports: [
     BrowserModule,

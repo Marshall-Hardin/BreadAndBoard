@@ -1,1 +1,71 @@
-<p>page works!</p>
+<app-navbar2></app-navbar2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="text-center">
+                <h3>Current Trips</h3>
+                <!-- <ul>
+                    <li *ngfor="let user of users">
+                        {{user}}
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="text-center">
+    <h2><b>Admin Section</b></h2>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Ban User</h3>
+            <form>
+                <div class="form-group">
+                    <label for="">User to ban:</label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="">Explanation:</label>
+                    <input type="text" class="form-control" placeholder="Explain Reason">
+                </div>
+                <button type="submit" class="btn btn-danger">Ban</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <h3>Editor's Choice</h3>
+            <form>
+                <div class="form-group">
+                    <label for="">Restaurant Name:</label>
+                    <input type="text" class="form-control" placeholder="Restuarant Name">
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <h3>Upgrade User</h3>
+            <form>
+                <div class="form-group">
+                    <label for="">Username:</label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <button type="submit" class="btn btn-danger">Upgrade</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <br>
+            <h3>View Banned</h3>
+            <br>
+            <button type="submit" class="btn btn-danger">View</button>
+            <br>
+            <small>Banned Users</small>
+            <!-- <ul>
+                <li *ngfor="let user of users">
+                    {{user}}
+                </li>
+            </ul> -->
+        </div>
+    </div>
+</div>

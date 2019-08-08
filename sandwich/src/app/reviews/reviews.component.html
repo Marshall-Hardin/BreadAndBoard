@@ -1,60 +1,39 @@
-<div class="container" style="display: flex;justify-content: center;">
-    <div >
-        <h1>Bread and Board Reviews</h1>
-    </div>
+<app-navbar2></app-navbar2>
+<div class="text-center">
+    <h1>Bread and Board Reviews</h1>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-6"><h2>View Reviews on Your Trip</h2></div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">(Aggrigate)</div>
-        <div class="col-md-2">
-            <select name="Location" id="location">
-                <option value="NA">--location--</option>
-                <option value="city1">City1</option>
-                <option value="city2">City2</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <select name="Restaurant" id="restaurant">
-                <option value="NA">--restaurant--</option>
-                <option value="Restaurant1">Restaurant1</option>
-                <option value="Restaurant2">Restaurant2</option>
-            </select>
-            <button>Submit</button>
-        </div>
-    </div>
-    
-    <!-- will just append more of the following div for all results of the above search -->
-    <ul>
-        <li *ngFor = "let review of reviews">
-            <h5>{{review.title}} -- {{review.score}}</h5>
-            <div>
-                {{review.content}}
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="container">
-    <h2>Edit Your Reviews</h2>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-            <select name="My Reviews" id="my-reviews">
-                <option value="NA">--reviews--</option>
-                <option value="review1">review1</option>
-                <option value="review2">review2</option>
-            </select>
-            <button>Submit</button>
-        </div>
-    </div>
+        <div class="col-sm-5">
+            <h3>Rating:</h3>
+            <label class="container">1
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
 
-    <div>
-        <h5>{{title}} {{score}}</h5>
-        <div>
-            {{contents}}
+            <label class="container">2
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">3
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">4
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">5
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <textarea rows="4" cols="50" placeholder="Your Review"></textarea>
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+        <div class="col-sm-6">
+            <h3>Reviews on Your Trip</h3>
         </div>
     </div>
-    <button>Edit</button>
 </div>
