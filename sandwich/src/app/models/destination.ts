@@ -1,7 +1,10 @@
 export class Destination
 {
     tripId:number;
+    destName:string;
     destNumb:number;
-    destDate:Date;
+    //destDate:Date;
     destLocation:string;
+    destLat:number;
+    destLng:number;
 }
