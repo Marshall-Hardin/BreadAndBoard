@@ -21,28 +21,28 @@ public class Trip
 	@Id
 	@GeneratedValue
 	@Column(name="trip_id")
-	int tripId;
+	private int tripId;
 	
 	@ManyToOne
 	@JoinColumn(name="account_id")
-	User accountId;
+	private User accountId;
 	
 	@Column(name="access_timestamp")
 	@Temporal(value = TemporalType.TIMESTAMP)
-	Date accessTimestamp;
+	private Date accessTimestamp;
 	
 	@Column(name="trip_name")
-	String tripName;
+	private String tripName;
 	
-	@OneToMany(mappedBy="destinations")
-	private List<Destination> destination;
+	@OneToMany(mappedBy="tripId")
+	private List<Destination> destinations;
 	
 	public List<Destination> getDestination() {
-		return destination;
+		return destinations;
 	}
 
-	public void setDestination(List<Destination> destination) {
-		this.destination = destination;
+	public void setDestination(List<Destination> destinations) {
+		this.destinations = destinations;
 	}
 
 	public Trip () {}

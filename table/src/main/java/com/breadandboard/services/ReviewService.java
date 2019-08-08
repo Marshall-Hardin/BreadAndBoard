@@ -43,7 +43,7 @@ public class ReviewService {
 	}
 	
 	public void deleteAllUserReviews(int userId) {
-		List<Review> reviews = repo.findByReview_User_Id(userId);
+		List<Review> reviews = repo.findByUserId(userId);
 		while(!reviews.isEmpty()) {
 			repo.deleteById(reviews.get(0).getId());
 		}
@@ -61,11 +61,11 @@ public class ReviewService {
 	}
 	
 	public List<Review> findByUserId(int userId){
-		return repo.findByReview_User_Id(userId);
+		return repo.findByUserId(userId);
 	}
 	
 	public List<Review> findByLocation(int locationId){
-		return repo.findByReview_Location(locationId);
+		return repo.findByLocation(locationId);
 	}
 
 }

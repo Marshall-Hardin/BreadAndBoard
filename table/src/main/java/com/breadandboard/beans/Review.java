@@ -11,9 +11,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+
 @Entity
 @Table(name = "reviews")
 public class Review {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +23,7 @@ public class Review {
 	
 	@ManyToOne
 	@JoinColumn(name = "review_user_id")
-	private int userId;
+	private User userId;
 	
 	@Column(name = "review_rating")
 	@Min(1)
@@ -30,7 +32,7 @@ public class Review {
 	
 	@ManyToOne
 	@JoinColumn(name = "review_location")
-	private int location;
+	private Location location;
 	
 	@Column(name = "review_title")
 	private String title;
@@ -38,7 +40,7 @@ public class Review {
 	@Column(name = "review_text")
 	private String reviewText;
 
-	public Review(int id, int userId, @Min(1) @Max(6) int rating, int location, String title, String reviewText) {
+	public Review(int id, User userId, @Min(1) @Max(6) int rating, Location location, String title, String reviewText) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -48,7 +50,7 @@ public class Review {
 		this.reviewText = reviewText;
 	}
 
-	public Review(int userId, @Min(1) @Max(6) int rating, int location, String title, String reviewText) {
+	public Review(User userId, @Min(1) @Max(6) int rating, Location location, String title, String reviewText) {
 		super();
 		this.userId = userId;
 		this.rating = rating;
@@ -67,11 +69,11 @@ public class Review {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 
@@ -83,11 +85,11 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public int getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(int location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 

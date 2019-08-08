@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,46 +17,78 @@ import javax.persistence.Table;
  *
  */
 
-@Entity @IdClass(DestinationId.class)
+@Entity 
 @Table(name="destinations")
 public class Destination 
 {
-	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int destId;
+	
 	@ManyToOne
 	@JoinColumn(name="dest_trip_id")
-	Trip trip;
-	@Id
+	private Trip tripId;
+	
 	@Column(name = "dest_number")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int destNumber;
+	private int destNumber;
+	
 	@Column(name = "dest_date")
-	Date destDate;
+	private Date destDate;
+	
 	@Column(name = "dest_location")
-	String location;
+	private String location;
 	
-	public Destination() {}
+	@Column(name = "dest_lat")
+	private double destLat;
 	
-	public Destination(int destNumber, Date destDate, String location) {
-		super();
-		this.destNumber = destNumber;
-		this.destDate = destDate;
-		this.location = location;
+	@Column(name = "dest_long")
+	private double destLong;
+	
+	public int getDestId() {
+		return destId;
 	}
 
-	public Destination(Trip trip, int destNumber, Date destDate, String location) {
+	public void setDestId(int destId) {
+		this.destId = destId;
+	}
+
+	public double getDestLat() {
+		return destLat;
+	}
+
+	public void setDestLat(double destLat) {
+		this.destLat = destLat;
+	}
+
+	public Destination() {}
+	
+	public Destination(int destId, Trip tripId, int destNumber, Date destDate, String location, double destLat,
+			double destLong) {
 		super();
-		this.trip = trip;
+		this.destId = destId;
+		this.tripId = tripId;
 		this.destNumber = destNumber;
 		this.destDate = destDate;
 		this.location = location;
+		this.destLat = destLat;
+		this.destLong = destLong;
 	}
-	
+
+	public Destination(Trip tripId, int destNumber, Date destDate, String location, double destLat, double destLong) {
+		super();
+		this.tripId = tripId;
+		this.destNumber = destNumber;
+		this.destDate = destDate;
+		this.location = location;
+		this.destLat = destLat;
+		this.destLong = destLong;
+	}
+
 	public Trip getTripId() {
-		return trip;
+		return tripId;
 	}
 	public void setTripId(Trip tripId) {
-		this.trip = tripId;
+		this.tripId = tripId;
 	}
 	public int getDestNumber() {
 		return destNumber;

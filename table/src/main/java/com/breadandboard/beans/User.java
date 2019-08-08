@@ -9,9 +9,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 /**
  * 
  * @author Zev
@@ -20,8 +17,6 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "DBusers")
-@Component
-@Scope("session")
 public class User {
 	
 	@Id

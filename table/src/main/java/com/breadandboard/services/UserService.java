@@ -38,6 +38,6 @@ public class UserService {
 	}
 	
 	public User findByUsername(String username) {
-		return repo.findByAccount_Username(username);
+		return repo.findByUsername(username);
 	}
 }

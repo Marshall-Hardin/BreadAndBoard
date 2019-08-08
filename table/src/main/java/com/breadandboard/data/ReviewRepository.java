@@ -9,6 +9,6 @@ import com.breadandboard.beans.Review;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-	public List<Review> findByReview_User_Id(int userId);
-	public List<Review> findByReview_Location(int locationId);
+	public List<Review> findByUserId(int userId);
+	public List<Review> findByLocation(int locationId);
 }
