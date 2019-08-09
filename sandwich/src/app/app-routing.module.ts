@@ -10,7 +10,7 @@ import { TrippageComponent } from './trippage/trippage.component';
 export const routes: Routes = [
   {
     path: ' ', 
-    redirectTo: '/login',
+    redirectTo: '/main',
     pathMatch: 'full'
   },
   { path: 'login',

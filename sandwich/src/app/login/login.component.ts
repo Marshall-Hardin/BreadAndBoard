@@ -8,12 +8,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   username: string;
+  password: string;
 
   constructor(private router: Router) { }
 
-  public onLoginClick() {
+  public onSubmit() {
     this.username;
+    this.password;
     console.log(this.username);
+    console.log(this.password);
     this.router.navigate(['./page']);
   }
 }

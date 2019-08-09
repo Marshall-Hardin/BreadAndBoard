@@ -22,34 +22,34 @@
     <div class="row">
         <div class="col-sm-4">
             <h3>Ban User</h3>
-            <form>
+            <form (submit)="onSubmit()">
                 <div class="form-group">
                     <label for="">User to ban:</label>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="username">
                 </div>
                 <div class="form-group">
                     <label for="">Explanation:</label>
-                    <input type="text" class="form-control" placeholder="Explain Reason">
+                    <input type="text" class="form-control" placeholder="Explain Reason" [(ngModel)]="reason" name="reason">
                 </div>
                 <button type="submit" class="btn btn-danger">Ban</button>
             </form>
         </div>
         <div class="col-sm-4">
             <h3>Editor's Choice</h3>
-            <form>
+            <form (submit)="onSubmit2()">
                 <div class="form-group">
                     <label for="">Restaurant Name:</label>
-                    <input type="text" class="form-control" placeholder="Restuarant Name">
+                    <input type="text" class="form-control" placeholder="Restuarant Name" [(ngModel)]="restuarantname" name="restuarantname">
                 </div>
                 <button type="submit" class="btn btn-danger">Submit</button>
             </form>
         </div>
         <div class="col-sm-4">
             <h3>Upgrade User</h3>
-            <form>
+            <form (submit)="onSubmit3()">
                 <div class="form-group">
                     <label for="">Username:</label>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="upgradedusername" name="upgradedusername">
                 </div>
                 <button type="submit" class="btn btn-danger">Upgrade</button>
             </form>

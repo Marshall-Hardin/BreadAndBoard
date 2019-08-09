@@ -5,32 +5,22 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-5">
-            <h3>Rating:</h3>
-            <label class="container">1
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">2
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">3
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">4
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">5
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <textarea rows="4" cols="50" placeholder="Your Review"></textarea>
-            <button type="submit" class="btn btn-danger">Submit</button>
+            <h3>Review Restaurant</h3>
+            <label><b>Choose Restaraunt</b></label>
+            <select name="Restaurant" id="restaurant">
+                <option value="NA">--restaurant--</option>
+                <option value="Restaurant1">Restaurant1</option>
+                <option value="Restaurant2">Restaurant2</option>
+            </select>
+            <br>
+            <label><b>Rating:</b></label>
+            <input type="radio" [(ngModel)]="radio" name="radio" value="1">1
+            <input type="radio" [(ngModel)]="radio" name="radio" value="2">2
+            <input type="radio" [(ngModel)]="radio" name="radio" value="3">3
+            <input type="radio" [(ngModel)]="radio" name="radio" value="4">4
+            <input type="radio" [(ngModel)]="radio" name="radio" value="5">5
+            <textarea rows="4" cols="50" placeholder="Your Review" [(ngModel)]="review" name="review"></textarea>
+            <button type="submit" class="btn btn-danger" (click)="onSubmit()">Submit</button>
         </div>
         <div class="col-sm-6">
             <h3>Reviews on Your Trip</h3>

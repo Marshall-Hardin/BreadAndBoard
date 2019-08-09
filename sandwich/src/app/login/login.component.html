@@ -41,21 +41,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <form>
+                <form (submit)="onSubmit()">
                     <div class="form-group">
                         <label for="">
                             <h5>Username:</h5>
                         </label>
                         <input type="text" class="form-control"
-                            placeholder="Enter Username">
+                            placeholder="Enter Username" [(ngModel)]="username" name="username">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">
                             <h5>Password:</h5>
                         </label>
-                        <input type="password" class="form-control" placeholder="Enter Password">
+                        <input type="password" class="form-control" placeholder="Enter Password" [(ngModel)]="password" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary" (click)="onLoginClick()">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
