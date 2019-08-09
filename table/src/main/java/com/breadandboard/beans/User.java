@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -20,7 +21,9 @@ import javax.validation.constraints.Min;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator" )
+	@SequenceGenerator(name="user_generator", sequenceName = "account_id_seq", allocationSize=1)
+	@Column(name = "account_Id")
 	private int accountId;
 	
 	@Column(name = "account_username", nullable = false, unique = true)
@@ -33,12 +36,14 @@ public class User {
 	private String name;
 	
 	@Column(name = "access_level")
-	@Min(1)
+	@Min(0)
 	@Max(3)
 	private int accessLevel;
 	
 	@Column(name = "ban_desc")
 	private String banDesc;
+	
+	public User() {}
 
 	public User(String username, String password, String name, @Min(1) @Max(3) int accessLevel, String banDesc) {
 		super();
@@ -59,7 +64,7 @@ public class User {
 
 
 
-	public User(int accountId, String username, String password, String name,
+	public User(Integer accountId, String username, String password, String name,
 			@Min(1) @Max(3) int accessLevel, String banDesc) {
 		super();
 		this.accountId = accountId;
