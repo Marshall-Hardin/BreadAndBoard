@@ -1,0 +1,16 @@
+<div>
+    <table *ngIf="show">
+        <tr>Heading to {{destination.destName}}</tr>
+        <tr>Which is located at {{destination.destLocation}}</tr>
+        <tr>At latitude {{destination.destLat}}</tr>
+        <tr>and longitude of {{destination.destLng}}</tr>
+        <button (click)="onEditClick()">Edit</button>
+    </table>
+    <div *ngIf="edit" class='row'>
+        <label class='col-sm-2'>Name your destination</label>
+        <label class='col-sm-2'>Please type in a location</label>
+        <input [(ngModel)]="destination.destLocation">
+        
+        <button (click)='onSaveClick(destination)' type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
