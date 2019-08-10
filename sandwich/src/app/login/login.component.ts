@@ -7,7 +7,8 @@ const httpOptions =
 {
   headers: new HttpHeaders(
   {
-    'Content-type': 'application/json'
+    'Content-type': 'application/json',
+    'Accept': 'application/json'
   })
 }
 
@@ -24,7 +25,14 @@ export class LoginComponent {
   // url = 'http://httpbin.org/post';
   url = 'http://localhost:8080/api/v1/table/';
   json;
-  user: User;
+  user: User = {
+    username: '',
+    password: '',
+    email: '',
+    banDesc:'',
+    accessLevel:1,
+    accountName:''
+  };
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -39,12 +47,13 @@ export class LoginComponent {
 
   public loginPost()
   {
-    this.user = {username:this.username, password:this.password};
+    this.user.username = this.username;
+    this.user.password = this.password;
     //let corsUrl = 'https://cors-anywhere.herokuapp.com/';
     console.log("Attempting to do the thing");
-    this.http.post<User>(`${this.url}login`, this.user, httpOptions).subscribe(data => {this.user = data});
+    this.http.post(`${this.url}login`, JSON.stringify(this.user), httpOptions).subscribe(data => {this.user = data});
     sessionStorage.setItem("user", JSON.stringify(this.user));
-    console.log("User: " + this.user);
+    console.log(JSON.stringify(this.user));
 
   }
 
@@ -53,6 +62,6 @@ export class LoginComponent {
     this.postData.password = this.password;
     this.loginPost();
     console.log(JSON.parse(localStorage.getItem("user")));
-    // this.router.navigate(['./page']);
+    this.router.navigate(['./page']);
   }
 }

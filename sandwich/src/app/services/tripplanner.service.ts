@@ -6,7 +6,8 @@ import { Destination } from '../models/destination';
 const httpOptions = 
 {
   headers: new HttpHeaders({
-    'Content-type': 'application/json'
+    'Content-type': 'application/json',
+    'Accept': 'application/json'
   })
 }
 

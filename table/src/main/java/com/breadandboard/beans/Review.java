@@ -63,8 +63,6 @@ public class Review {
 		this.reviewText = reviewText;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
@@ -89,12 +87,12 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public Location getreviewlocation() {
+	public Location getReviewLocation() {
 		return reviewLocation;
 	}
 
-	public void setreviewlocation(Location reviewlocation) {
-		this.reviewLocation = reviewlocation;
+	public void setReviewLocation(Location reviewLocation) {
+		this.reviewLocation = reviewLocation;
 	}
 
 	public String getTitle() {
@@ -112,5 +110,9 @@ public class Review {
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
+
+
+
+
 
 }

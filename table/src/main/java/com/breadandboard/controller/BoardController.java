@@ -50,7 +50,7 @@ public class BoardController {
 		return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
 	}
 	
-	@PostMapping(path="/login", consumes="application/json", produces="application/json")
+	@PostMapping(path="/login")
 	public User login(@RequestBody User user) {
 		System.out.println("Logging in");
 		User login = userService.findByUsername(user.getUsername());
