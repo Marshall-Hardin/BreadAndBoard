@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name = "reviews")
@@ -22,6 +24,7 @@ public class Review {
 	private int id;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "review_user_id")
 	private User userId;
 	
@@ -31,8 +34,9 @@ public class Review {
 	private int rating;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "review_location")
-	private Location location;
+	private Location reviewLocation;
 	
 	@Column(name = "review_title")
 	private String title;
@@ -40,21 +44,21 @@ public class Review {
 	@Column(name = "review_text")
 	private String reviewText;
 
-	public Review(int id, User userId, @Min(1) @Max(6) int rating, Location location, String title, String reviewText) {
+	public Review(int id, User userId, @Min(1) @Max(6) int rating, Location reviewlocation, String title, String reviewText) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.rating = rating;
-		this.location = location;
+		this.reviewLocation = reviewlocation;
 		this.title = title;
 		this.reviewText = reviewText;
 	}
 
-	public Review(User userId, @Min(1) @Max(6) int rating, Location location, String title, String reviewText) {
+	public Review(User userId, @Min(1) @Max(6) int rating, Location reviewlocation, String title, String reviewText) {
 		super();
 		this.userId = userId;
 		this.rating = rating;
-		this.location = location;
+		this.reviewLocation = reviewlocation;
 		this.title = title;
 		this.reviewText = reviewText;
 	}
@@ -85,12 +89,12 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public Location getLocation() {
-		return location;
+	public Location getreviewlocation() {
+		return reviewLocation;
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setreviewlocation(Location reviewlocation) {
+		this.reviewLocation = reviewlocation;
 	}
 
 	public String getTitle() {

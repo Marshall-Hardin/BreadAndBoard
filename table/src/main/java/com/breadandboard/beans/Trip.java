@@ -13,6 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 @Entity
 @Table(name="trips")
 public class Trip 
@@ -24,6 +28,7 @@ public class Trip
 	private int tripId;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name="account_id")
 	private User accountId;
 	
@@ -31,6 +36,7 @@ public class Trip
 	private String tripName;
 	
 	@OneToMany(mappedBy="tripId")
+	@JsonManagedReference
 	private List<Destination> destinations;
 	
 	public List<Destination> getDestination() {
@@ -79,4 +85,13 @@ public class Trip
 	public void setTripName(String tripName) {
 		this.tripName = tripName;
 	}
+
+	public List<Destination> getDestinations() {
+		return destinations;
+	}
+
+	public void setDestinations(List<Destination> destinations) {
+		this.destinations = destinations;
+	}
+	
 }

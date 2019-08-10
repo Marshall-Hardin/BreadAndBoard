@@ -1,14 +1,19 @@
 package com.breadandboard.beans;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * 
@@ -43,6 +48,15 @@ public class User {
 	@Column(name = "ban_desc")
 	private String banDesc;
 	
+	@OneToMany(mappedBy = "accountId")
+	@JsonManagedReference
+	private List<Trip> trips;
+	
+	@OneToMany(mappedBy = "userId")
+	@JsonManagedReference
+	private List<Review> reviews;
+	
+	
 	public User() {}
 
 	public User(String username, String password, String name, @Min(1) @Max(3) int accessLevel, String banDesc) {
@@ -74,7 +88,7 @@ public class User {
 		this.accessLevel = accessLevel;
 		this.banDesc = banDesc;
 	}
-
+	
 	public int getAccountId() {
 		return accountId;
 	}
@@ -83,27 +97,27 @@ public class User {
 		this.accountId = accountId;
 	}
 
-	public String getAccountUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setAccountUsername(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	public String getAccountPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setAccountPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getAccountName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setAccountName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -121,6 +135,22 @@ public class User {
 
 	public void setBanDesc(String banDesc) {
 		this.banDesc = banDesc;
+	}
+
+	public List<Trip> getTrips() {
+		return trips;
+	}
+
+	public void setTrips(List<Trip> trips) {
+		this.trips = trips;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override

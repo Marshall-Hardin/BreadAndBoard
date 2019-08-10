@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * 
  * @author Paul Hudspeth
@@ -26,6 +28,7 @@ public class Destination
 	private int destId;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name="dest_trip_id")
 	private Trip tripId;
 	

@@ -20,11 +20,7 @@ public class TableApplicationTests {
 
 	@Test
 	@Transactional
-	public void tripRetrievalTest() 
-	{
-		TripService trip = new TripService();
-		System.out.println(trip.findById(1));
-		System.out.println(trip.findByAccountId(3));
+	public void tripRetrievalTest() {
 	}
 	
 }

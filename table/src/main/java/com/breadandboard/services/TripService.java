@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.breadandboard.beans.Trip;
+import com.breadandboard.beans.User;
 import com.breadandboard.data.TripRepository;
 
 @Service
@@ -43,10 +44,14 @@ public class TripService
 		repo.deleteById(id);
 	}
 	
-	public List<Trip> findByAccountId(int accountId)
+	public List<Trip> findByAccountId(User accountId)
 	{
-		System.out.println(repo.findByAccountId(accountId));
 		return repo.findByAccountId(accountId);
+	}
+	
+	public void deleteByTripId(int tripId)
+	{
+		repo.deleteByTripId(tripId);
 	}
 	
 }

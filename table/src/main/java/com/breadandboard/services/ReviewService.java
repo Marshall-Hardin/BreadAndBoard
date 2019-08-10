@@ -7,6 +7,7 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.breadandboard.beans.Location;
 import com.breadandboard.beans.Review;
 import com.breadandboard.data.ReviewRepository;
 
@@ -64,8 +65,8 @@ public class ReviewService {
 		return repo.findByUserId(userId);
 	}
 	
-	public List<Review> findByLocation(int locationId){
-		return repo.findByLocation(locationId);
+	public List<Review> findByLocation(Location location){
+		return repo.findByReviewLocation(location);
 	}
 
 }
