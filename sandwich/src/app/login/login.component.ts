@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpXsrfTokenExtractor, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
+
+const httpOptions = 
+{
+  headers: new HttpHeaders(
+  {
+    'Content-type': 'application/json'
+  })
+}
 
 @Component({
   selector: 'app-login',
@@ -13,19 +21,31 @@ export class LoginComponent {
   password: string;
 
   postData = { username: '', password: '' };
-  url = 'http://httpbin.org/post';
+  // url = 'http://httpbin.org/post';
+  url = 'http://localhost:8080/api/v1/table/';
   json;
   user: User;
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  public loginPost() {
+  // public loginPost() {
+  //   let corsUrl = 'https://cors-anywhere.herokuapp.com/';
+  //   console.log("running...");
+  //   this.http.post(corsUrl + this.url + 'login', this.postData).toPromise().then((data: any) => {
+  //     this.user = JSON.parse(data.data);
+  //     localStorage.setItem("user", JSON.stringify(this.user));
+  //   });
+  // }
 
-    console.log("running...");
-    this.http.post(this.url, this.postData).toPromise().then((data: any) => {
-      this.user = JSON.parse(data.data);
-      localStorage.setItem("user", JSON.stringify(this.user));
-    });
+  public loginPost()
+  {
+    this.user = {username:this.username, password:this.password};
+    //let corsUrl = 'https://cors-anywhere.herokuapp.com/';
+    console.log("Attempting to do the thing");
+    this.http.post<User>(`${this.url}login`, this.user, httpOptions).subscribe(data => {this.user = data});
+    sessionStorage.setItem("user", JSON.stringify(this.user));
+    console.log("User: " + this.user);
+
   }
 
   public onSubmit() {

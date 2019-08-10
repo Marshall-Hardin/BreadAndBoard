@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ import com.breadandboard.services.UserService;
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "api/v1/table" )
 
 public class BoardController {
@@ -48,15 +50,18 @@ public class BoardController {
 		return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/login")
-	public User login( @RequestParam String username, @RequestParam String password) {
-		User login = userService.findByUsername(username);
+	@PostMapping(path="/login", consumes="application/json", produces="application/json")
+	public User login(@RequestBody User user) {
+		System.out.println("Logging in");
+		User login = userService.findByUsername(user.getUsername());
 		if(login != null) {
-			if(password.equals(login.getPassword())) {
+			if(user.getPassword().equals(login.getPassword())) {
+				System.out.println("Valid Login");
 				return login;
 			}
 		} 
 		login = new User("Bad User", "Bad User", "Bad User", 0);
+		System.out.println("Invalid login");
 		return login;
 	}
 	
