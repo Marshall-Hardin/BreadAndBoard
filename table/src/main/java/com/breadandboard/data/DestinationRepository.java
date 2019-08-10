@@ -1,5 +1,13 @@
 package com.breadandboard.data;
 
-public interface DestinationRepository {
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.breadandboard.beans.Destination;
+
+public interface DestinationRepository extends JpaRepository<Destination, Integer>
+{
+	public List<Destination> findAllByTripId (int tripId);
+	public void deleteByTripId(int tripId);
 }
