@@ -6,10 +6,10 @@ import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule } from '@angular/common/http';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./AppComponent";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { ReviewsComponent } from './reviews/reviews.component'
+import { ReviewsComponent } from './reviews/reviews.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgxPopper } from 'angular-popper';
 import { RegisterComponent } from './register/register.component';
@@ -18,10 +18,16 @@ import { TriprowComponent } from './userpage/triprow/triprow.component';
 import { TripPlannerComponent } from './tripplanner/trip-planner/trip-planner.component';
 import { DestinationComponent } from './tripplanner/destination/destination.component'
 
+import { PageComponent } from './userpage/page/page.component';
+import { Navbar2Component } from './navbar2/navbar2.component';
+import { MytripsComponent } from './userpage/mytrips/mytrips.component';
+import { TrippageComponent } from './trippage/trippage.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'page', component: PageComponent },
+  { path: 'mytrips', component: MytripsComponent }
 ];
 
 @NgModule({
@@ -31,6 +37,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     ReviewsComponent,
     RegisterComponent,
+    MytripsComponent,
     AccountDetailsComponent,
     TriprowComponent,
     TripPlannerComponent,
@@ -38,6 +45,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     GooglePlaceModule,
+    PageComponent,
+    Navbar2Component,
+    TrippageComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
