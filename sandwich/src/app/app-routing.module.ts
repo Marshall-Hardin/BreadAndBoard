@@ -10,7 +10,7 @@ import { TrippageComponent } from './trippage/trippage.component';
 export const routes: Routes = [
   {
     path: ' ', 
-    redirectTo: '/main',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   { path: 'login',
@@ -40,3 +40,5 @@ export const routes: Routes = [
   ]
 })
 export class AppRoutingModule { }
+
+

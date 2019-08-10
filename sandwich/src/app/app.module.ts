@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from "./AppComponent";
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { MytripsComponent } from './userpage/mytrips/mytrips.component';
 import { TrippageComponent } from './trippage/trippage.component';
 
 const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'page', component: PageComponent },
@@ -42,8 +44,9 @@ const appRoutes: Routes = [
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule,
+    HttpClientModule,
     // NgxPopper,
+    AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBj773FOJ6yJsOyLx5js8e_WOYePNVrvdQ'})
   ],
