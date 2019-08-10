@@ -1,10 +1,10 @@
-<!-- <div class="container">
-    <div class="col-lg-6">
-
-    </div>
-    <div class="col-lg-6"> -->
-        <agm-map (mapClick)="onMapClick($event)">
-            <agm-marker *ngFor="let destination of destinations" [latitude]="destination.destLat" [longitude]="destination.destLng"></agm-marker>
-        </agm-map>
-    <!-- </div>
-</div> -->
+<div>
+    <app-navbar></app-navbar>
+            <app-destination *ngFor="let destination of destinations" 
+            [destination]="destination"
+            (updateDestination)="updateDestination($event)"
+            ></app-destination>
+            <agm-map (mapClick)="onMapClick($event)">
+                <agm-marker *ngFor="let destination of destinations" [(latitude)]="destination.destLat" [longitude]="destination.destLng"></agm-marker>
+            </agm-map>
+</div>
