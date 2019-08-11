@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpXsrfTokenExtractor, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 
-const httpOptions = 
+const httpOptions =
 {
   headers: new HttpHeaders(
-  {
-    'Content-type': 'application/json',
-    'Accept': 'application/json'
-  })
+    {
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    })
 }
 
 @Component({
@@ -22,46 +22,32 @@ export class LoginComponent {
   password: string;
 
   postData = { username: '', password: '' };
-  // url = 'http://httpbin.org/post';
   url = 'http://localhost:8080/api/v1/table/';
   json;
-  user: User = {
-    username: '',
-    password: '',
-    email: '',
-    banDesc:'',
-    accessLevel:1,
-    accountName:''
-  };
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  // public loginPost() {
-  //   let corsUrl = 'https://cors-anywhere.herokuapp.com/';
-  //   console.log("running...");
-  //   this.http.post(corsUrl + this.url + 'login', this.postData).toPromise().then((data: any) => {
-  //     this.user = JSON.parse(data.data);
-  //     localStorage.setItem("user", JSON.stringify(this.user));
-  //   });
-  // }
+  public loginPost() {
+    let user: User = {
+      username: this.username,
+      password: this.password
+    };
+    this.http.post(`${this.url}login`, JSON.stringify(user), httpOptions).subscribe(data => { user = data, this.validation(user) });
+  }
 
-  public loginPost()
-  {
-    this.user.username = this.username;
-    this.user.password = this.password;
-    //let corsUrl = 'https://cors-anywhere.herokuapp.com/';
-    console.log("Attempting to do the thing");
-    this.http.post(`${this.url}login`, JSON.stringify(this.user), httpOptions).subscribe(data => {this.user = data});
-    sessionStorage.setItem("user", JSON.stringify(this.user));
-    console.log(JSON.stringify(this.user));
+  public validation(user: User) {
+    if (user.username === "") {
+      return; //invalid
+    }
 
+    localStorage.setItem("user",
+      JSON.stringify(user));
+    this.router.navigate(['./page']);
   }
 
   public onSubmit() {
     this.postData.username = this.username;
     this.postData.password = this.password;
     this.loginPost();
-    console.log(JSON.parse(localStorage.getItem("user")));
-    this.router.navigate(['./page']);
   }
 }

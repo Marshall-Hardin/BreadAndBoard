@@ -76,8 +76,6 @@ public class User {
 		this.accessLevel = accessLevel;
 	}
 
-
-
 	public User(Integer accountId, String username, String password, String name,
 			@Min(1) @Max(3) int accessLevel, String banDesc) {
 		super();
@@ -87,6 +85,14 @@ public class User {
 		this.name = name;
 		this.accessLevel = accessLevel;
 		this.banDesc = banDesc;
+	}
+	
+	public User(String username, String password, String name) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.accessLevel = 1;
 	}
 	
 	public int getAccountId() {

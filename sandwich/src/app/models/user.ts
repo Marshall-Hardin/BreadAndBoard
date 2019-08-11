@@ -2,7 +2,7 @@ export class User
 {
     username?:string;
     password?:string;
-    accountName?:string;
+    name?:string;
     email?:string;
     accessLevel?:number;
     banDesc?:string;

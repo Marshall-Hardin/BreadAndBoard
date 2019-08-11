@@ -60,7 +60,7 @@ public class BoardController {
 				return login;
 			}
 		} 
-		login = new User("Bad User", "Bad User", "Bad User", 0);
+		login = new User("", "", "", 0);
 		System.out.println("Invalid login");
 		return login;
 	}

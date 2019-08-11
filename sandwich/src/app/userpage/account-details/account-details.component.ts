@@ -29,7 +29,7 @@ export class AccountDetailsComponent implements OnInit {
           this.username = user.username;
           this.password = user.password;
           this.email = user.email;
-          this.name = user.accountName;
+          this.name = user.name;
         }
       };
       xhr.send();
