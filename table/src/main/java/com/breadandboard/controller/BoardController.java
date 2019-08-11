@@ -27,9 +27,8 @@ import com.breadandboard.services.UserService;
  */
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "api/v1/table" )
-
 public class BoardController {
 	
 	//private static final Logger log = Logger.getLogger(BoardController.class);
