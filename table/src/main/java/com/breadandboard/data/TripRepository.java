@@ -12,6 +12,4 @@ import com.breadandboard.beans.User;
 public interface TripRepository extends JpaRepository<Trip, Integer>
 {
 	public List<Trip> findByAccountId(User accountId);
-
-	public void deleteByTripId(int tripId);
 }

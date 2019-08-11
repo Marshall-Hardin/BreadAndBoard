@@ -45,9 +45,8 @@ public class BoardController {
 	
 	/*----------user calls----------*/
 	@PostMapping("/register")
-	public ResponseEntity<User> saveUser(@RequestParam int accessLevel, @RequestParam String username, @RequestParam String password, @RequestParam String name ) {
-		User user = new User(name,username,password,accessLevel);
-		return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
+	public User saveUser(@RequestBody User user ) {
+		return userService.save(user);
 	}
 	
 	@PostMapping(path="/login")
@@ -57,6 +56,7 @@ public class BoardController {
 		if(login != null) {
 			if(user.getPassword().equals(login.getPassword())) {
 				System.out.println("Valid Login");
+				login.setTrips(null);
 				return login;
 			}
 		} 
@@ -67,14 +67,12 @@ public class BoardController {
 	
 	/*----------trip calls----------*/
 	@PostMapping("/newtrip")
-	public Trip saveTrip(@RequestParam int accountId, @RequestParam String tripName) {
-		Trip trip = new Trip(userService.findById(accountId), tripName);
+	public Trip newTrip(@RequestBody Trip trip) {
 		return tripService.save(trip);
 	}
 	
 	@PostMapping("/edittrip")
-	public Trip saveTrip(@RequestParam int tripId, @RequestParam int accountId, @RequestParam String tripName) {
-		Trip trip = new Trip(tripId, userService.findById(accountId), tripName);
+	public Trip saveTrip(@RequestBody Trip trip) {
 		return tripService.save(trip);
 	}
 	
@@ -87,7 +85,7 @@ public class BoardController {
 	
 	@PostMapping("/deletetrip")
 	public void deleteTrip(@RequestParam int tripId) {
-		
+		tripService.delete(tripId);
 	}
 	
 	/*----------destination calls----------*/
