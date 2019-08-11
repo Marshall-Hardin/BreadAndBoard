@@ -17,6 +17,7 @@ const httpOptions =
 export class TripplannerService {
 
   baseUrl:string = 'http://localhost:8080/';
+  getUrl:string = 'tripdest';
 
 
   constructor(
@@ -25,7 +26,8 @@ export class TripplannerService {
 
   getDestination():Observable<Destination[]>
   {
-    return this.http.get<Destination[]>(this.baseUrl);
+    return this.http.post<Destination[]>(`${this.baseUrl}${this.getUrl}`, 1 ,httpOptions);
+    //localStorage.getItem('tripId')
   }
 
   getGeoCode(destination:Destination):Observable<Object>

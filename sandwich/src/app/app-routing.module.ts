@@ -6,6 +6,7 @@ import { PageComponent } from './userpage/page/page.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { MytripsComponent } from './userpage/mytrips/mytrips.component';
 import { TrippageComponent } from './trippage/trippage.component';
+import { TripPlannerComponent } from './tripplanner/trip-planner/trip-planner.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   },
   { path: 'trippage', 
   component: TrippageComponent 
+  },
+  {
+    path: 'tripplanner',
+    component: TripPlannerComponent
   }
 ]
 

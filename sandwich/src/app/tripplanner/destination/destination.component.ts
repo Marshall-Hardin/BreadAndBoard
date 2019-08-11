@@ -10,11 +10,11 @@ export class DestinationComponent implements OnInit {
 
   @Input() destination: Destination;
   @Output() updateDestination: EventEmitter<Destination> = new EventEmitter();
+  @Output() deleteDestination: EventEmitter<Destination> = new EventEmitter();
 
 
   edit:boolean = false;
   show:boolean = true;
-  geoCoder: any;
   //For reference the vars in Destination are:
 
   // tripId:number;
@@ -45,6 +45,11 @@ export class DestinationComponent implements OnInit {
     this.updateDestination.emit(destination);
   }
 
+  onDeleteClick(destination)
+  {
+    this.deleteDestination.emit(destination);
+  }
+
 
   // api/v1/table/tripdest --loading all destinations
   urlGetDests:string = 'api/v1/table/tripdest';
@@ -52,6 +57,11 @@ export class DestinationComponent implements OnInit {
   urlSaveDest:string = 'api/v1/table/tripdest';
   // api/v1/table/deletedest
   urlDeleteDest:string = 'api/v1/table/deletedest';
+
+  saveDestination(destination)
+  {
+
+  }
 
   baseUrl:string = 'http://localhost:8080/'
 

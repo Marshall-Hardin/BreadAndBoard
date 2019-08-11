@@ -18,56 +18,102 @@ export class TripPlannerComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    this.destinations = [{
-      tripId: 1,
-      destName: 'Shri Lanka',
-      destNumb: 0,
-      destLocation: '',
-      destLat: 11,
-      destLng: 12
-    }, {
-      tripId: 1,
-      destName: 'Cambodia',
-      destNumb: 1,
-      destLocation: '',
-      destLat: 14,
-      destLng: 14
-    }, {
-      tripId:1,
-      destName:'Turkey',
-      destNumb:2,
-      destLocation:'',
-      destLat: 16,
-      destLng: 16
-    }, {
-      tripId:1,
-      destName:'',
-      destNumb:3,
-      destLocation:'',
-      destLat: 18,
-      destLng: 18
-    }, {
-      tripId:1,
-      destName:'',
-      destNumb:4,
-      destLocation:'',
-      destLat: 20,
-      destLng: 20
-    }]
-    //this.tripService.getDestination().subscribe(destinations => {this.destinations = destinations});
+    //  this.destinations = [{
+    //    tripId: 1,
+    //    destName: '',
+    //    destNumb: 0,
+    //    destLocation: '',
+    //    destLat: 0,
+    //    destLng: 0,
+    //    destDate: new Date
+    // }]
+    //   tripId: 1,
+    //   destName: 'Cambodia',
+    //   destNumb: 1,
+    //   destLocation: '',
+    //   destLat: 14,
+    //   destLng: 14
+    // }, {
+    //   tripId:1,
+    //   destName:'Turkey',
+    //   destNumb:2,
+    //   destLocation:'',
+    //   destLat: 16,
+    //   destLng: 16
+    // }, {
+    //   tripId:1,
+    //   destName:'',
+    //   destNumb:3,
+    //   destLocation:'',
+    //   destLat: 18,
+    //   destLng: 18
+    // }, {
+    //   tripId:1,
+    //   destName:'',
+    //   destNumb:4,
+    //   destLocation:'',
+    //   destLat: 20,
+    //   destLng: 20
+    // }]
+    this.tripService.getDestination().subscribe(destinations => {this.destinations = destinations});
   }
 
   onMapClick(event) {
-    let destination: Destination =
+    if(this.destinations !=undefined)
     {
-      tripId:1,
-      destName:'',
-      destNumb:this.destinations.length,
-      destLocation:'',
-      destLat: event.coords.lat,
-      destLng: event.coords.lng
+      let destination: Destination =
+      {
+        tripId:1,
+        destName:'',
+        destNumb:this.destinations.length-1 || 0,
+        destLocation:'',
+        destLat: event.coords.lat,
+        destLng: event.coords.lng,
+        destDate: new Date
+      }
+      this.destinations.push(destination);
     }
-    this.destinations.push(destination);
+    else
+    {
+      this.destinations = [{
+        tripId: 1,
+        destName: '',
+        destNumb: 0,
+        destLocation: '',
+        destLat: event.coords.lat,
+        destLng: event.coords.lng,
+        destDate: new Date
+      }]
+    }
+  }
+
+  addDestination() {
+    if(this.destinations !=undefined)
+    {
+      let destination: Destination =
+      {
+        tripId:1,
+        destName:'',
+        destNumb:this.destinations.length-1 || 0,
+        destLocation:'',
+        destLat: 0,
+        destLng: 0,
+        destDate: new Date
+      }
+      this.destinations.push(destination);
+    }
+    else
+    {
+      this.destinations = [{
+        tripId: 1,
+        destName: '',
+        destNumb: 0,
+        destLocation: '',
+        destLat: 0,
+        destLng: 0,
+        destDate: new Date
+      }]
+    }
   }
 
   updateDestination(destination: Destination){
