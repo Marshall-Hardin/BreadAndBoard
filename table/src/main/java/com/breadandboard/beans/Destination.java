@@ -9,9 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -24,13 +26,18 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Destination 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dest_generator" )
+	@SequenceGenerator(name="dest_generator", sequenceName = "dest_id_seq", allocationSize=1)
 	private int destId;
 	
-	@ManyToOne
-	@JsonBackReference
-	@JoinColumn(name="dest_trip_id")
-	private Trip tripId;
+//	@ManyToOne
+//	@JsonBackReference
+//	@JoinColumn(name="dest_trip_id")
+//	@JsonIgnoreProperties({"accountId", "tripName"})
+//	private Trip tripId;
+	
+	@Column(name="dest_trip_id")
+	private int tripId;
 	
 	@Column(name = "dest_number")
 	private int destNumber;
@@ -65,7 +72,7 @@ public class Destination
 
 	public Destination() {}
 	
-	public Destination(int destId, Trip tripId, int destNumber, Date destDate, String location, double destLat,
+	public Destination(int destId, int tripId, int destNumber, Date destDate, String location, double destLat,
 			double destLong) {
 		super();
 		this.destId = destId;
@@ -77,7 +84,7 @@ public class Destination
 		this.destLong = destLong;
 	}
 
-	public Destination(Trip tripId, int destNumber, Date destDate, String location, double destLat, double destLong) {
+	public Destination(int tripId, int destNumber, Date destDate, String location, double destLat, double destLong) {
 		super();
 		this.tripId = tripId;
 		this.destNumber = destNumber;
@@ -87,10 +94,10 @@ public class Destination
 		this.destLong = destLong;
 	}
 
-	public Trip getTripId() {
+	public int getTripId() {
 		return tripId;
 	}
-	public void setTripId(Trip tripId) {
+	public void setTripId(int tripId) {
 		this.tripId = tripId;
 	}
 	public int getDestNumber() {

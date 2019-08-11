@@ -36,4 +36,12 @@ export class TripplannerService {
     return this.http.get<Object>(corsUrl + `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${destination.destLocation}&key=AIzaSyBj773FOJ6yJsOyLx5js8e_WOYePNVrvdQ`);
   }
 
+    // api/v1/table/savedest --update/creating destinations
+    urlSaveDest:string = 'api/v1/table/savedest';
+
+    saveDestination(destination)
+    {
+      this.http.post(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions).subscribe();
+    }
+
 }
