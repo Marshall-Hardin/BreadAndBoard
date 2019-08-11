@@ -34,14 +34,16 @@ export class LoginComponent {
     };
     this.http.post(`${this.url}login`, JSON.stringify(user), httpOptions).subscribe(data => { user = data, this.validation(user) });
   }
-
+  
   public validation(user: User) {
+    console.log(user.username);
     if (user.username === "") {
+      console.log("Invalid login!")
       return; //invalid
     }
-
+    
     localStorage.setItem("user",
-      JSON.stringify(user));
+    JSON.stringify(user));
     this.router.navigate(['./page']);
   }
 
