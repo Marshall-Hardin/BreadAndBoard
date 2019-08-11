@@ -76,20 +76,20 @@ public class BoardController {
 	}
 	
 	@PostMapping("/usertrips")
-	public List<Trip> getTrips(@RequestParam int accountId){
+	public List<Trip> getTrips(@RequestBody int accountId){
 		User user = userService.findById(accountId);
 		List<Trip> trips = tripService.findByAccountId(user);
 		return trips;
 	}
 	
 	@PostMapping("/deletetrip")
-	public void deleteTrip(@RequestParam int tripId) {
+	public void deleteTrip(@RequestBody int tripId) {
 		tripService.delete(tripId);
 	}
 	
 	/*----------destination calls----------*/
 	@PostMapping("/tripdest")
-	public List<Destination> getTripDestinations(@RequestParam int tripId){
+	public List<Destination> getTripDestinations(@RequestBody int tripId){
 		List<Destination> destList = destService.findByTrip(tripId);
 		return destList;
 	}
