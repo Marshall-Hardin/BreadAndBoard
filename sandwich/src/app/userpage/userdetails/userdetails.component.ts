@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpXsrfTokenExtractor, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/models/user';
+import { Destination } from 'src/app/models/destination';
 
 const httpOptions =
 {
@@ -18,18 +19,18 @@ const httpOptions =
 })
 
 export class UserdetailsComponent implements OnInit {
-  edit : boolean = false;
-  show : boolean = true;
-  username : string;
-  password : string;
-  email : string;
-  name : string;
-  accessLevel : number;
-  adminLevel : string;
-  accountId : number;
-  banDesc : string;
+  edit: boolean = false;
+  show: boolean = true;
+  username: string;
+  password: string;
+  email: string;
+  name: string;
+  accessLevel: number;
+  adminLevel: string;
+  accountId: number;
+  banDesc: string;
 
-  user : User;
+  user: User;
 
   postData = { username: '' };
   url = 'http://localhost:8080/api/v1/table/';
@@ -43,13 +44,13 @@ export class UserdetailsComponent implements OnInit {
     this.accountId = this.user.accountId;
     this.accessLevel = this.user.accessLevel;
     this.banDesc = this.user.banDesc;
-    if(this.accessLevel === 1) {
+    if (this.accessLevel === 1) {
       this.adminLevel = "User";
     }
-    else if(this.accessLevel === 2) {
+    else if (this.accessLevel === 2) {
       this.adminLevel = "Admin";
     }
-    else if(this.accessLevel === 3) {
+    else if (this.accessLevel === 3) {
       this.adminLevel = "Banned";
     }
   }
@@ -64,13 +65,13 @@ export class UserdetailsComponent implements OnInit {
 
   public onSubmit() {
     let user: User = {
-      accountId : this.accountId,
+      accountId: this.accountId,
       email: this.email,
       password: this.password,
       name: this.name,
-      username : this.username,
-      accessLevel : this.accessLevel,
-      banDesc : this.banDesc
+      username: this.username,
+      accessLevel: this.accessLevel,
+      banDesc: this.banDesc
     };
     this.http.post(`${this.url}register`, JSON.stringify(user), httpOptions).subscribe(data => { user = data, this.validation(user) });
     console.log(JSON.stringify(user));
