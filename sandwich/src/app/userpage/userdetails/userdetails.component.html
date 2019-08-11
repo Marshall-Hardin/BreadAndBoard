@@ -9,10 +9,10 @@
     <label>
         <h5>Email:</h5>
     </label>
-    <input type="email" class="form-control" name="email" value={{email}}>
+    <input type="email" class="form-control" name="email" value={{email}} [(ngModel)]="email">
     <label>
         <h5>Name:</h5>
     </label>
-    <input type="text" class="form-control" name="name" value={{name}}>
+    <input type="text" class="form-control" name="name" value={{name}} [(ngModel)]="name">
     <button (click)="onSubmit()" class="btn btn-danger">Submit</button>
 </div>

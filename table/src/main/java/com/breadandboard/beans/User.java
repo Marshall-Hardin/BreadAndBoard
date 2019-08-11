@@ -48,6 +48,9 @@ public class User {
 	@Column(name = "ban_desc")
 	private String banDesc;
 	
+	@Column(name = "account_email")
+	private String email;
+	
 	@OneToMany(mappedBy = "accountId")
 	@JsonManagedReference
 	private List<Trip> trips;
@@ -77,7 +80,7 @@ public class User {
 	}
 
 	public User(Integer accountId, String username, String password, String name,
-			@Min(1) @Max(3) int accessLevel, String banDesc) {
+			@Min(1) @Max(3) int accessLevel, String banDesc, String email) {
 		super();
 		this.accountId = accountId;
 		this.username = username;
@@ -85,6 +88,7 @@ public class User {
 		this.name = name;
 		this.accessLevel = accessLevel;
 		this.banDesc = banDesc;
+		this.email = email;
 	}
 	
 	public User(String username, String password, String name) {
@@ -98,6 +102,7 @@ public class User {
 	public int getAccountId() {
 		return accountId;
 	}
+
 
 	public void setAccountId(int accountId) {
 		this.accountId = accountId;
@@ -151,6 +156,7 @@ public class User {
 		this.trips = trips;
 	}
 
+	
 //	public List<Review> getReviews() {
 //		return reviews;
 //	}
@@ -158,6 +164,14 @@ public class User {
 //	public void setReviews(List<Review> reviews) {
 //		this.reviews = reviews;
 //	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public String toString() {
