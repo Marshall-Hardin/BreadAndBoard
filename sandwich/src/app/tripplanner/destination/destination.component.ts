@@ -1,5 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Destination } from '../../models/destination';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
+const httpOptions = 
+{
+  headers: new HttpHeaders({
+    'Content-type': 'application/json',
+    'Accept': 'application/json'
+  })
+}
 
 @Component({
   selector: 'app-destination',
@@ -25,7 +34,9 @@ export class DestinationComponent implements OnInit {
   // destLat:number;
   // destLng:number;
 
-  constructor(){}
+  constructor(
+    private http: HttpClient
+  ){}
     
   ngOnInit() 
   {
@@ -43,11 +54,13 @@ export class DestinationComponent implements OnInit {
     this.show = !this.show;
     this.edit = !this.edit;
     this.updateDestination.emit(destination);
+    this.saveDestination(destination);
   }
 
   onDeleteClick(destination)
   {
     this.deleteDestination.emit(destination);
+    this.http.post(`${this.baseUrl}${this.urlDeleteDest}`, destination, httpOptions).subscribe();
   }
 
 
@@ -60,7 +73,7 @@ export class DestinationComponent implements OnInit {
 
   saveDestination(destination)
   {
-
+    this.http.post(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions).subscribe();
   }
 
   baseUrl:string = 'http://localhost:8080/'
