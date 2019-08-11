@@ -57,8 +57,21 @@ export class UserdetailsComponent implements OnInit {
   }
 
   public onSubmit() {
-    
+    let user: User = {
+      email: this.email,
+      name: this.name,
+      username : this.username,
+      accessLevel : this.accessLevel,
+    };
+    this.http.post(`${this.url}register`, JSON.stringify(user), httpOptions).subscribe(data => { user = data, this.validation(user) });
   }
 
+  public validation(user: User) {
+    if (user.name === "" || user.email === "") {
+      return; //invalid
+    }
 
+    localStorage.setItem("user",
+      JSON.stringify(user));
+  }
 }
