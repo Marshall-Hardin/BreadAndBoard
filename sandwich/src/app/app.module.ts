@@ -22,6 +22,7 @@ import { PageComponent } from './userpage/page/page.component';
 import { Navbar2Component } from './navbar2/navbar2.component';
 import { MytripsComponent } from './userpage/mytrips/mytrips.component';
 import { TrippageComponent } from './trippage/trippage.component';
+import { UserdetailsComponent } from './userpage/userdetails/userdetails.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     AccountDetailsComponent,
     TriprowComponent,
     TripPlannerComponent,
-    DestinationComponent
+    DestinationComponent,
+    UserdetailsComponent
   ],
   imports: [
     GooglePlaceModule,

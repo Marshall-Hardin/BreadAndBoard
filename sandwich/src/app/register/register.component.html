@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <div class="row">
         <div class="col-sm-4"></div>
@@ -27,9 +28,9 @@
                     <label for="">
                         <h5>Full Name:</h5>
                     </label>
-                    <input type="text" class="form-control" [(ngModel)]="fullname" name="fullname" placeholder="First & Last Name">
+                    <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="First & Last Name">
                 </div>
-                <button routerLink="/login" type="submit" class="btn btn-primary">Sign-up</button>
+                <button (click)="onSubmit" type="submit" class="btn btn-danger">Sign-up</button>
             </form>
         </div>
     </div>
