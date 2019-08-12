@@ -59,7 +59,6 @@ export class TripPlannerComponent implements OnInit {
   addDestination() {
     if(this.destinations !=undefined)
     {
-      console.log("Adding to existing array");
       let destination: Destination =
       {
         tripId:1,
@@ -76,7 +75,6 @@ export class TripPlannerComponent implements OnInit {
     }
     else
     {
-      console.log("Adding new Array");
       this.destinations = [{
         tripId: 1,
         destName: '',

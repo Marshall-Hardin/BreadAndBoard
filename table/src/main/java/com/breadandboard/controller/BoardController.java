@@ -89,7 +89,7 @@ public class BoardController {
 	
 	/*----------destination calls----------*/
 	@PostMapping("/tripdest")
-	public List<Destination> getTripDestinations(@RequestParam int tripId){
+	public List<Destination> getTripDestinations(@RequestBody int tripId){
 		List<Destination> destList = destService.findByTrip(tripId);
 		return destList;
 	}

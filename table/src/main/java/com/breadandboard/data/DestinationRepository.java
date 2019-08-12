@@ -8,6 +8,6 @@ import com.breadandboard.beans.Destination;
 
 public interface DestinationRepository extends JpaRepository<Destination, Integer>
 {
-	public List<Destination> findAllByTripId (int tripId);
+	public List<Destination> findByTripId (int tripId);
 	public void deleteByTripId(int tripId);
 }
