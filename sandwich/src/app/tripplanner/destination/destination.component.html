@@ -4,6 +4,7 @@
         <tr>Which is located at {{destination.location}}</tr>
         <tr>At latitude {{destination.destLat}}</tr>
         <tr>and longitude of {{destination.destLong}}</tr>
+        <tr>with a depature date of {{destination.destDate | date: 'shortDate'}}</tr>
         <button (click)="onEditClick()">Edit</button>
     </table>
     <div *ngIf="edit" class='row'>

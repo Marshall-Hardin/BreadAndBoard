@@ -26,8 +26,8 @@ export class TripplannerService {
 
   getDestination():Observable<Destination[]>
   {
-    return this.http.post<Destination[]>(`${this.baseUrl}${this.getUrl}`, 1 ,httpOptions);
-    //localStorage.getItem('tripId')
+    return this.http.post<Destination[]>(`${this.baseUrl}${this.getUrl}`, localStorage.getItem('tripId') ,httpOptions);
+    
   }
 
   getGeoCode(destination:Destination):Observable<Object>

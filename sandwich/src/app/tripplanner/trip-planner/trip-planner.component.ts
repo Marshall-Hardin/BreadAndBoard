@@ -18,7 +18,7 @@ export class TripPlannerComponent implements OnInit {
   ){}
 
   ngOnInit() {
-
+    this.tripId = Number(localStorage.getItem('tripId'));
     this.tripService.getDestination().subscribe(destinations => {this.destinations = destinations});
   }
 
@@ -27,7 +27,7 @@ export class TripPlannerComponent implements OnInit {
     {
       let destination: Destination =
       {
-        tripId:1,
+        tripId: this.tripId,
         destName:'',
         destNumber:this.destinations.length,
         location:'',
@@ -42,7 +42,7 @@ export class TripPlannerComponent implements OnInit {
     else
     {
       this.destinations = [{
-        tripId: 1,
+        tripId: this.tripId,
         destName: '',
         destNumber: 0,
         location: '',
@@ -101,8 +101,8 @@ export class TripPlannerComponent implements OnInit {
       let loc = this.parseGeoCodeJSON(data);
       this.destinations[destination.destNumber].destLat = loc.lat;
       this.destinations[destination.destNumber].destLong = loc.lng;
+      this.tripService.saveDestination(destination).subscribe(dest => { this.destinations[destination.destNumber] = dest, console.log(dest)});
     },);
-    this.tripService.saveDestination(destination).subscribe(dest => { this.destinations[destination.destNumber] = dest, console.log(dest)});
   }
 
   parseGeoCodeJSON(data: Object){
