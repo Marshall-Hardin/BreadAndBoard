@@ -1,0 +1,18 @@
+<h3>Account Information</h3>
+<h5>Username: {{username}}</h5>
+<h5>Email: {{email}}</h5>
+<h5>Name: {{name}}</h5>
+<h5>Admin Level: {{adminLevel}}</h5>
+<button (click)="onClick()" class="btn btn-danger">Edit</button>
+<div *ngIf="edit">
+    <h3>Edit Info</h3>
+    <label>
+        <h5>Email:</h5>
+    </label>
+    <input type="email" class="form-control" name="email" value={{email}} [(ngModel)]="email">
+    <label>
+        <h5>Name:</h5>
+    </label>
+    <input type="text" class="form-control" name="name" value={{name}} [(ngModel)]="name">
+    <button (click)="onSubmit()" class="btn btn-danger">Submit</button>
+</div>

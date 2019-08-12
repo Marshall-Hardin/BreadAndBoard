@@ -1,11 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PageComponent } from './userpage/page/page.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { MytripsComponent } from './userpage/mytrips/mytrips.component';
+import { TrippageComponent } from './trippage/trippage.component';
+import { TripPlannerComponent } from './tripplanner/trip-planner/trip-planner.component';
 
 export const routes: Routes = [
   {
     path: ' ', 
-    redirectTo: '/main',
+    redirectTo: '/login',
     pathMatch: 'full'
+  },
+  { path: 'login',
+    component: LoginComponent
+  },
+  { path: 'register', 
+    component: RegisterComponent 
+  },
+  { path: 'page', 
+    component: PageComponent 
+  },
+  { path: 'reviews', 
+    component: ReviewsComponent 
+  },
+  { path: 'mytrips', 
+  component: MytripsComponent 
+  },
+  { path: 'trippage', 
+  component: TrippageComponent 
+  },
+  {
+    path: 'tripplanner',
+    component: TripPlannerComponent
   }
 ]
 
@@ -16,3 +45,5 @@ export const routes: Routes = [
   ]
 })
 export class AppRoutingModule { }
+
+

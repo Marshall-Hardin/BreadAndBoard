@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar {
+    background-color: #a80000;
+}
+
+.navbuffer {
+    background-color: #E6C023;
+    height: 5%;
+    padding: 0.25em;
+}
+
+body {
+    background-color: linen;
+}
+
+/* .container {
+    background-color: #FDFDFE;
+    height: 90vh;
+} */
+/* .footer {
+    display: flex;
+    align-items: flex-end;
+}
+
+.f1 {
+    display: flex;
+    align-items: flex-end;
+    background-color: #E6C023;
+    padding: .5em;
+    width: 100%;
+}
+
+.f2 {
+    display: flex;
+    align-items: flex-end;
+    background-color:#a80000;
+    padding: 1em;
+    width: 100%;
+} */

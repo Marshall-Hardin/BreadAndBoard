@@ -1,0 +1,13 @@
+.mytripsrow {
+    background-color: #a80000;
+    border-radius: 0.5em;
+    padding: inherit;
+    text-align: center;
+    color: white;
+    font-size: x-large;
+}
+
+.tripsrow {
+    margin-inline-start: 2.5em;
+    overflow-wrap: break-word;
+}

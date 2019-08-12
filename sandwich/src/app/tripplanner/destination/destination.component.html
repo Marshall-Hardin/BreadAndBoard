@@ -1,0 +1,22 @@
+<div>
+    <table *ngIf="show">
+        <tr><b>Heading to:</b> {{destination.destName}}</tr>
+        <tr><b>Which is located at:</b> {{destination.location}}</tr>
+        <tr><b>At latitude:</b> {{destination.destLat}}</tr>
+        <tr><b>At longitude:</b> {{destination.destLong}}</tr>
+        <tr><b>Depature date:</b> {{destination.destDate | date: 'shortDate'}}</tr>
+        <button class="btn btn-danger" (click)="onEditClick()">Edit</button>
+        <hr>
+    </table>
+    <div *ngIf="edit" class='row'>
+        <label class='col-sm-2'>Name your destination</label>
+        <input type="text" [(ngModel)]="destination.destName" value="destination.destName">
+        <label class='col-sm-2'>Please type in a location</label>
+        <input [(ngModel)]="destination.location" value="destination.location">
+        <label class="col-sm-2">Please indicate a date</label>
+        <input type="Date" [(ngModel)]="destination.destDate" value="destination.destDate">
+        
+        <button (click)='onSaveClick(destination)' type="submit" class="btn btn-primary">Save</button>
+        <button (click)='onDeleteClick(destination)' type="submit" class="btn btn-caution">Delete</button>
+    </div>
+</div>
