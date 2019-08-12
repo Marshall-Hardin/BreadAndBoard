@@ -26,14 +26,14 @@ export class TripplannerService {
 
   getDestination():Observable<Destination[]>
   {
-    return this.http.post<Destination[]>(`${this.baseUrl}${this.getUrl}`, 1 ,httpOptions);
-    //localStorage.getItem('tripId')
+    return this.http.post<Destination[]>(`${this.baseUrl}${this.getUrl}`, localStorage.getItem('tripId') ,httpOptions);
+    
   }
 
   getGeoCode(destination:Destination):Observable<Object>
   {
     let corsUrl = 'https://cors-anywhere.herokuapp.com/';
-    return this.http.get<Object>(corsUrl + `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${destination.destLocation}&key=AIzaSyBj773FOJ6yJsOyLx5js8e_WOYePNVrvdQ`);
+    return this.http.get<Object>(corsUrl + `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${destination.location}&key=AIzaSyBj773FOJ6yJsOyLx5js8e_WOYePNVrvdQ`);
   }
 
     // api/v1/table/savedest --update/creating destinations
@@ -41,7 +41,7 @@ export class TripplannerService {
 
     saveDestination(destination)
     {
-      this.http.post(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions).subscribe();
+      return this.http.post<Destination>(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions);
     }
 
 }
