@@ -1,9 +1,10 @@
 .mytripsrow {
-    background-color: lightcoral;
+    background-color: #a80000;
     border-radius: 0.5em;
     padding: inherit;
-    width: 30%;
     text-align: center;
+    color: white;
+    font-size: x-large;
 }
 
 .tripsrow {

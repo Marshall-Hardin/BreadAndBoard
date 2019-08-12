@@ -1,7 +1,7 @@
 
 export class Trip
 {
-    tripId:number;
+    tripId?:number;
     accountId?:number;
     tripName:string;
 }

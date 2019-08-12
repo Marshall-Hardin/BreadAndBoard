@@ -1,9 +1,5 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <label>{{tripName}}
-                <button class="btn btn-danger">Edit</button>
-            </label>
-        </div>
-    </div>
+<div class="col-lg-12">
+    <h5>{{trip.tripName}}
+        <button name={{tripId}} (click)="onEdit()" class="btn btn-danger">Edit</button>
+    </h5>
 </div>
