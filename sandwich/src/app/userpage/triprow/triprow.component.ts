@@ -18,7 +18,6 @@ export class TriprowComponent implements OnInit {
 
   private onEdit() {
     localStorage.setItem("tripId", this.trip.tripId.toString());
-    this.router.navigate(['./trippage']);
+    this.router.navigate(['./tripplanner']);
   }
-
 }

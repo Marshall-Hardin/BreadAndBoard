@@ -1,11 +1,12 @@
 <div>
     <table *ngIf="show">
-        <tr>Heading to {{destination.destName}}</tr>
-        <tr>Which is located at {{destination.location}}</tr>
-        <tr>At latitude {{destination.destLat}}</tr>
-        <tr>and longitude of {{destination.destLong}}</tr>
-        <tr>with a depature date of {{destination.destDate | date: 'shortDate'}}</tr>
-        <button (click)="onEditClick()">Edit</button>
+        <tr><b>Heading to:</b> {{destination.destName}}</tr>
+        <tr><b>Which is located at:</b> {{destination.location}}</tr>
+        <tr><b>At latitude:</b> {{destination.destLat}}</tr>
+        <tr><b>At longitude:</b> {{destination.destLong}}</tr>
+        <tr><b>Depature date:</b> {{destination.destDate | date: 'shortDate'}}</tr>
+        <button class="btn btn-danger" (click)="onEditClick()">Edit</button>
+        <hr>
     </table>
     <div *ngIf="edit" class='row'>
         <label class='col-sm-2'>Name your destination</label>

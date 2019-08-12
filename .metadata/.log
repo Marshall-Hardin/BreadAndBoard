@@ -1255,3 +1255,6 @@ java.lang.InterruptedException
 
 !ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2019-08-11 21:47:33.399
 !MESSAGE Field value processing of @ConfigurationProperty meta-data is not supported
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2019-08-11 22:32:43.441
+!MESSAGE Field value processing of @ConfigurationProperty meta-data is not supported
