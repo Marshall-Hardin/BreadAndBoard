@@ -44,7 +44,7 @@ public class TripService
 		repo.deleteById(id);
 	}
 	
-	public List<Trip> findByAccountId(User accountId)
+	public List<Trip> findByAccountId(int accountId)
 	{
 		return repo.findByAccountId(accountId);
 	}

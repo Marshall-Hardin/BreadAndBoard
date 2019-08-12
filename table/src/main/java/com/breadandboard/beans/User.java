@@ -51,10 +51,10 @@ public class User {
 	@Column(name = "account_email")
 	private String email;
 	
-	@OneToMany(mappedBy = "accountId")
-	@JsonManagedReference
-	private List<Trip> trips;
-	
+//	@OneToMany(mappedBy = "accountId")
+//	@JsonManagedReference
+//	private List<Trip> trips;
+//	
 //	@OneToMany(mappedBy = "userId")
 //	@JsonManagedReference
 //	private List<Review> reviews;
@@ -148,13 +148,13 @@ public class User {
 		this.banDesc = banDesc;
 	}
 
-	public List<Trip> getTrips() {
-		return trips;
-	}
-
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
-	}
+//	public List<Trip> getTrips() {
+//		return trips;
+//	}
+//
+//	public void setTrips(List<Trip> trips) {
+//		this.trips = trips;
+//	}
 
 	
 //	public List<Review> getReviews() {

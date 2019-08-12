@@ -55,7 +55,6 @@ public class BoardController {
 		if(login != null) {
 			if(user.getPassword().equals(login.getPassword())) {
 				System.out.println("Valid Login");
-				login.setTrips(null);
 				return login;
 			}
 		} 
@@ -77,8 +76,7 @@ public class BoardController {
 	
 	@PostMapping("/usertrips")
 	public List<Trip> getTrips(@RequestBody int accountId){
-		User user = userService.findById(accountId);
-		List<Trip> trips = tripService.findByAccountId(user);
+		List<Trip> trips = tripService.findByAccountId(accountId);
 		return trips;
 	}
 	

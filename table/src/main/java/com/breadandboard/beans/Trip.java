@@ -28,10 +28,13 @@ public class Trip
 	@Column(name="trip_id")
 	private int tripId;
 	
-	@ManyToOne
-	@JsonBackReference
-	@JoinColumn(name="account_id")
-	private User accountId;
+//	@ManyToOne
+//	@JsonBackReference
+//	@JoinColumn(name="account_id")
+//	private User accountId;
+	
+	@Column(name="account_id")
+	private int accountId;
 	
 	@Column(name="trip_name")
 	private String tripName;
@@ -44,13 +47,13 @@ public class Trip
 
 	public Trip () {}
 
-	public Trip(User accountId, String tripName) {
+	public Trip(int accountId, String tripName) {
 		super();
 		this.accountId = accountId;
 		this.tripName = tripName;
 	}
 
-	public Trip(int tripId, User accountId, String tripName) {
+	public Trip(int tripId, int accountId, String tripName) {
 		super();
 		this.tripId = tripId;
 		this.accountId = accountId;
@@ -73,11 +76,11 @@ public class Trip
 		this.destinations = destinations;
 	}
 
-	public User getAccountId() {
+	public int getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(User accountId) {
+	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
 

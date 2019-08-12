@@ -21,7 +21,9 @@ const httpOptions =
 })
 export class MytripsComponent implements OnInit {
 
-  user: User;
+  user: User = {
+    accountId: 1
+  }
   trips: Trip[];
   tripName: string;
   url = 'http://localhost:8080/api/v1/table/';
@@ -33,8 +35,9 @@ export class MytripsComponent implements OnInit {
       accountId: 0
     }];
     this.user = JSON.parse(localStorage.getItem("user"));
-    this.http.post<Trip[]>(`${this.url}usertrips`, JSON.stringify(this.user.accountId), httpOptions).subscribe(data => { this.trips = data, console.log(this.trips) });
-
+    let id = this.user.accountId;
+    console.log(id);
+    this.http.post<Trip[]>(`${this.url}usertrips`, JSON.stringify(id), httpOptions).subscribe(data => { this.trips = data});
   }
 
   ngOnInit() {
