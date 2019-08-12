@@ -1,19 +1,20 @@
 <div>
     <table *ngIf="show">
         <tr>Heading to {{destination.destName}}</tr>
-        <tr>Which is located at {{destination.destLocation}}</tr>
+        <tr>Which is located at {{destination.location}}</tr>
         <tr>At latitude {{destination.destLat}}</tr>
-        <tr>and longitude of {{destination.destLng}}</tr>
+        <tr>and longitude of {{destination.destLong}}</tr>
         <button (click)="onEditClick()">Edit</button>
     </table>
     <div *ngIf="edit" class='row'>
         <label class='col-sm-2'>Name your destination</label>
-        <input type="text" [(ngModel)]="destination.destName" value="destination.destLocation">
+        <input type="text" [(ngModel)]="destination.destName" value="destination.destName">
         <label class='col-sm-2'>Please type in a location</label>
-        <input [(ngModel)]="destination.destLocation" value="destination.destLocation">
+        <input [(ngModel)]="destination.location" value="destination.location">
         <label class="col-sm-2">Please indicate a date</label>
         <input type="Date" [(ngModel)]="destination.destDate" value="destination.destDate">
         
         <button (click)='onSaveClick(destination)' type="submit" class="btn btn-primary">Save</button>
+        <button (click)='onDeleteClick(destination)' type="submit" class="btn btn-caution">Delete</button>
     </div>
 </div>

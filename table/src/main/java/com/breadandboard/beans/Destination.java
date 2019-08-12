@@ -39,6 +39,9 @@ public class Destination
 	@Column(name="dest_trip_id")
 	private int tripId;
 	
+	@Column(name="dest_name")
+	private String destName;
+	
 	@Column(name = "dest_number")
 	private int destNumber;
 	
@@ -54,6 +57,21 @@ public class Destination
 	@Column(name = "dest_long")
 	private double destLong;
 	
+	
+	
+	public Destination(int destId, int tripId, String destName, int destNumber, Date destDate, String location,
+			double destLat, double destLong) {
+		super();
+		this.destId = destId;
+		this.tripId = tripId;
+		this.destName = destName;
+		this.destNumber = destNumber;
+		this.destDate = destDate;
+		this.location = location;
+		this.destLat = destLat;
+		this.destLong = destLong;
+	}
+
 	public int getDestId() {
 		return destId;
 	}
@@ -69,9 +87,11 @@ public class Destination
 	public void setDestLat(double destLat) {
 		this.destLat = destLat;
 	}
-
-	public Destination() {}
 	
+	public Destination() {
+		super();
+	}
+
 	public Destination(int destId, int tripId, int destNumber, Date destDate, String location, double destLat,
 			double destLong) {
 		super();
@@ -119,4 +139,19 @@ public class Destination
 		this.location = location;
 	}
 	
+	public String getDestName() {
+		return destName;
+	}
+	
+	public void setDestName(String destName) {
+		this.destName = destName;
+	}
+	
+	public double getDestLong() {
+		return destLong;
+	}
+	
+	public void setDestLong(double destLong) {
+		this.destLong = destLong;
+	}
 }

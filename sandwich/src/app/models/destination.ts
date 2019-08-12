@@ -2,9 +2,9 @@ export class Destination {
     destId?: number;
     tripId?: number;
     destName: string;
-    destNumb: number;
-    destDate:Date;
-    destLocation: string;
+    destNumber: number;
+    destDate: Date;
+    location: string;
     destLat: number;
-    destLng: number;
+    destLong: number;
 }

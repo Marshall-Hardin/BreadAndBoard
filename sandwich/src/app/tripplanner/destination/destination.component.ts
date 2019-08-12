@@ -54,7 +54,7 @@ export class DestinationComponent implements OnInit {
     this.show = !this.show;
     this.edit = !this.edit;
     this.updateDestination.emit(destination);
-    this.saveDestination(destination);
+    // this.saveDestination(destination);
   }
 
   onDeleteClick(destination)
@@ -71,10 +71,10 @@ export class DestinationComponent implements OnInit {
   // api/v1/table/savedest --update/creating destinations
   urlSaveDest:string = 'api/v1/table/savedest';
 
-  saveDestination(destination)
-  {
-    this.http.post(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions).subscribe();
-  }
+  // saveDestination(destination)
+  // {
+  //   this.http.post<Destination>(`${this.baseUrl}${this.urlSaveDest}`, destination, httpOptions).subscribe(destination => { this.destination = destination});
+  // }
 
   baseUrl:string = 'http://localhost:8080/'
 

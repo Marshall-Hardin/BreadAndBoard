@@ -7,6 +7,6 @@
             ></app-destination>
             <button (click)="addDestination()">Add new Destination</button>
             <agm-map (mapClick)="onMapClick($event)">
-                <agm-marker *ngFor="let destination of destinations" [(latitude)]="destination.destLat" [longitude]="destination.destLng"></agm-marker>
+                <agm-marker *ngFor="let destination of destinations" [(latitude)]="destination.destLat" [longitude]="destination.destLong"></agm-marker>
             </agm-map>
 </div>

@@ -25,34 +25,32 @@ export class TripPlannerComponent implements OnInit {
   onMapClick(event) {
     if(this.destinations !=undefined)
     {
-      console.log("Adding to existing array");
       let destination: Destination =
       {
         tripId:1,
         destName:'',
-        destNumb:this.destinations.length,
-        destLocation:'',
+        destNumber:this.destinations.length,
+        location:'',
         destLat: event.coords.lat,
-        destLng: event.coords.lng,
+        destLong: event.coords.lng,
         destDate: new Date
       }
-      console.log(destination.destNumb);
+      console.log(destination.destNumber);
       this.destinations.push(destination);
-      this.tripService.saveDestination(destination);
+      this.tripService.saveDestination(destination).subscribe(destination => {this.destinations[destination.destNumber] = destination});
     }
     else
     {
-      console.log("Adding new Array");
       this.destinations = [{
         tripId: 1,
         destName: '',
-        destNumb: 0,
-        destLocation: '',
+        destNumber: 0,
+        location: '',
         destLat: 0,
-        destLng: 0,
+        destLong: 0,
         destDate: new Date
       }]
-      this.tripService.saveDestination(this.destinations[0]);
+      this.tripService.saveDestination(this.destinations[0]).subscribe(destination => {this.destinations[0] = destination});
     }
   }
 
@@ -63,46 +61,48 @@ export class TripPlannerComponent implements OnInit {
       {
         tripId:1,
         destName:'',
-        destNumb:this.destinations.length || 0,
-        destLocation:'',
+        destNumber:this.destinations.length,
+        location:'',
         destLat: 0,
-        destLng: 0,
+        destLong: 0,
         destDate: new Date
       }
-      console.log(destination.destNumb);
+      console.log(destination.destNumber);
+      console.log(destination);
       this.destinations.push(destination);
-      this.tripService.saveDestination(destination);
+      this.tripService.saveDestination(destination).subscribe(destination => {this.destinations[destination.destNumber] = destination, console.log(destination)});
     }
     else
     {
       this.destinations = [{
         tripId: 1,
         destName: '',
-        destNumb: 0,
-        destLocation: '',
+        destNumber: 0,
+        location: '',
         destLat: 0,
-        destLng: 0,
+        destLong: 0,
         destDate: new Date
       }]
-      this.tripService.saveDestination(this.destinations[0]);
+      this.tripService.saveDestination(this.destinations[0]).subscribe(destination => {this.destinations[0] = destination});
     }
   }
 
   deleteDestination(destination:Destination)
   {
-    this.destinations.splice(destination.destNumb, 1);
+    this.destinations.splice(destination.destNumber, 1);
     for(let i = 0; i < this.destinations.length-1; i++)
     {
-      this.destinations[i].destNumb = i;
+      this.destinations[i].destNumber = i;
     }
   }
 
   updateDestination(destination: Destination){
     this.tripService.getGeoCode(destination).subscribe(data => {
       let loc = this.parseGeoCodeJSON(data);
-      this.destinations[destination.destNumb].destLat = loc.lat;
-      this.destinations[destination.destNumb].destLng = loc.lng;
-    });
+      this.destinations[destination.destNumber].destLat = loc.lat;
+      this.destinations[destination.destNumber].destLong = loc.lng;
+    },);
+    this.tripService.saveDestination(destination).subscribe(dest => { this.destinations[destination.destNumber] = dest, console.log(dest)});
   }
 
   parseGeoCodeJSON(data: Object){
