@@ -66,10 +66,10 @@ export class DestinationComponent implements OnInit {
 
   // api/v1/table/tripdest --loading all destinations
   urlGetDests:string = 'api/v1/table/tripdest';
-  // api/v1/table/savedest --update/creating destinations
-  urlSaveDest:string = 'api/v1/table/tripdest';
   // api/v1/table/deletedest
   urlDeleteDest:string = 'api/v1/table/deletedest';
+  // api/v1/table/savedest --update/creating destinations
+  urlSaveDest:string = 'api/v1/table/savedest';
 
   saveDestination(destination)
   {

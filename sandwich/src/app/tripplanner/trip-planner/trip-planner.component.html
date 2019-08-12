@@ -3,6 +3,7 @@
             <app-destination *ngFor="let destination of destinations" 
             [destination]="destination"
             (updateDestination)="updateDestination($event)"
+            (deleteDestination)="deleteDestination($event)"
             ></app-destination>
             <button (click)="addDestination()">Add new Destination</button>
             <agm-map (mapClick)="onMapClick($event)">

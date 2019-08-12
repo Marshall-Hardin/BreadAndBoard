@@ -30,6 +30,6 @@ public class DestinationService
 	
 	public List<Destination> findByTrip (int tripId)
 	{
-		return repo.findAllByTripId(tripId);
+		return repo.findByTripId(tripId);
 	}
 }

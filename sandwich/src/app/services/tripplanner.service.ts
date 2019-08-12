@@ -17,7 +17,7 @@ const httpOptions =
 export class TripplannerService {
 
   baseUrl:string = 'http://localhost:8080/';
-  getUrl:string = 'tripdest';
+  getUrl:string = 'api/v1/table/tripdest';
 
 
   constructor(
